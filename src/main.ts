@@ -1,6 +1,7 @@
 import { createReadStream } from "fs";
 import * as path from "path";
 import { Solver } from "./aoc";
+import { performance } from "perf_hooks";
 
 function usage() {
   [
@@ -49,15 +50,19 @@ async function run(year: number, day: number, input: NodeJS.ReadableStream) {
       `${paddedDay}.ts`
     )).default;
 
+    const start = performance.now();
     const solution = await solver(input);
+    const end = performance.now();
+
     console.log();
     console.log(`+= Solution for day ${paddedDay}, ${year} ===`);
     console.log("|");
     console.log(`|  First:   ${solution.first}`);
     console.log(`|  Second:  ${solution.second}`);
     console.log("+===============================");
-  } catch {
-    console.error(`could not find a valid file for ${year}/${paddedDay}`);
+    console.log(`Computed in ${(end - start).toFixed(2)}ms`);
+  } catch (e) {
+    console.error(`Error for ${year}/${paddedDay}: ${e.message}`);
     process.exit(3);
   }
 }

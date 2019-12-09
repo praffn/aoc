@@ -7,5 +7,8 @@
     "@types/node": "^12.12.14",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
+  },
+  "scripts": {
+    "aoc": "ts-node src/main.ts"
   }
 }

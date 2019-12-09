@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "strict": true,
-    "lib": ["DOM", "es2019"]
+    "lib": ["DOM", "ES2019"],
+    "target": "ES2015"
   }
 }

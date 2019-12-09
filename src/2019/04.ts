@@ -24,7 +24,6 @@ const solver: Solver = async input => {
     const digits = numberToArray(i);
     if (digits.length !== 6) continue;
     let twoAreTheSame = false;
-    let onlyTwoAreTheSame = false;
     let neverDecreases = true;
 
     const counts = new Map<number, number>();

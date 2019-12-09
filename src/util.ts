@@ -35,3 +35,7 @@ export async function commaSeparatedNumbers(
     return line.split(",").map(n => Number.parseInt(n));
   });
 }
+
+export async function getSingleLine(input: NodeJS.ReadableStream) {
+  return (await getAllLines(input))[0];
+}
